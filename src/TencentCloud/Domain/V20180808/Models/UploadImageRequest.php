@@ -18,20 +18,20 @@ namespace TencentCloud\Domain\V20180808\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CheckBatchStatus请求参数结构体
+ * UploadImage请求参数结构体
  *
- * @method array getLogIds() 获取操作日志 ID数组，最多 200 个
- * @method void setLogIds(array $LogIds) 设置操作日志 ID数组，最多 200 个
+ * @method string getImageFile() 获取资质照片，照片的base64编码。
+ * @method void setImageFile(string $ImageFile) 设置资质照片，照片的base64编码。
  */
-class CheckBatchStatusRequest extends AbstractModel
+class UploadImageRequest extends AbstractModel
 {
     /**
-     * @var array 操作日志 ID数组，最多 200 个
+     * @var string 资质照片，照片的base64编码。
      */
-    public $LogIds;
+    public $ImageFile;
 
     /**
-     * @param array $LogIds 操作日志 ID数组，最多 200 个
+     * @param string $ImageFile 资质照片，照片的base64编码。
      */
     function __construct()
     {
@@ -46,8 +46,8 @@ class CheckBatchStatusRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("LogIds",$param) and $param["LogIds"] !== null) {
-            $this->LogIds = $param["LogIds"];
+        if (array_key_exists("ImageFile",$param) and $param["ImageFile"] !== null) {
+            $this->ImageFile = $param["ImageFile"];
         }
     }
 }

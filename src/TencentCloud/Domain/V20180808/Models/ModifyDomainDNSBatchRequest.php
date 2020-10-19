@@ -18,20 +18,28 @@ namespace TencentCloud\Domain\V20180808\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CheckBatchStatus请求参数结构体
+ * ModifyDomainDNSBatch请求参数结构体
  *
- * @method array getLogIds() 获取操作日志 ID数组，最多 200 个
- * @method void setLogIds(array $LogIds) 设置操作日志 ID数组，最多 200 个
+ * @method array getDomains() 获取批量操作的域名。
+ * @method void setDomains(array $Domains) 设置批量操作的域名。
+ * @method array getDns() 获取域名DNS 数组。
+ * @method void setDns(array $Dns) 设置域名DNS 数组。
  */
-class CheckBatchStatusRequest extends AbstractModel
+class ModifyDomainDNSBatchRequest extends AbstractModel
 {
     /**
-     * @var array 操作日志 ID数组，最多 200 个
+     * @var array 批量操作的域名。
      */
-    public $LogIds;
+    public $Domains;
 
     /**
-     * @param array $LogIds 操作日志 ID数组，最多 200 个
+     * @var array 域名DNS 数组。
+     */
+    public $Dns;
+
+    /**
+     * @param array $Domains 批量操作的域名。
+     * @param array $Dns 域名DNS 数组。
      */
     function __construct()
     {
@@ -46,8 +54,12 @@ class CheckBatchStatusRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("LogIds",$param) and $param["LogIds"] !== null) {
-            $this->LogIds = $param["LogIds"];
+        if (array_key_exists("Domains",$param) and $param["Domains"] !== null) {
+            $this->Domains = $param["Domains"];
+        }
+
+        if (array_key_exists("Dns",$param) and $param["Dns"] !== null) {
+            $this->Dns = $param["Dns"];
         }
     }
 }

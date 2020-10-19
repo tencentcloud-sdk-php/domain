@@ -18,20 +18,20 @@ namespace TencentCloud\Domain\V20180808\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CheckBatchStatus请求参数结构体
+ * DeleteTemplate请求参数结构体
  *
- * @method array getLogIds() 获取操作日志 ID数组，最多 200 个
- * @method void setLogIds(array $LogIds) 设置操作日志 ID数组，最多 200 个
+ * @method string getTemplateId() 获取模板ID
+ * @method void setTemplateId(string $TemplateId) 设置模板ID
  */
-class CheckBatchStatusRequest extends AbstractModel
+class DeleteTemplateRequest extends AbstractModel
 {
     /**
-     * @var array 操作日志 ID数组，最多 200 个
+     * @var string 模板ID
      */
-    public $LogIds;
+    public $TemplateId;
 
     /**
-     * @param array $LogIds 操作日志 ID数组，最多 200 个
+     * @param string $TemplateId 模板ID
      */
     function __construct()
     {
@@ -46,8 +46,8 @@ class CheckBatchStatusRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("LogIds",$param) and $param["LogIds"] !== null) {
-            $this->LogIds = $param["LogIds"];
+        if (array_key_exists("TemplateId",$param) and $param["TemplateId"] !== null) {
+            $this->TemplateId = $param["TemplateId"];
         }
     }
 }

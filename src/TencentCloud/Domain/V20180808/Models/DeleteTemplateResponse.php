@@ -18,20 +18,20 @@ namespace TencentCloud\Domain\V20180808\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CheckBatchStatus请求参数结构体
+ * DeleteTemplate返回参数结构体
  *
- * @method array getLogIds() 获取操作日志 ID数组，最多 200 个
- * @method void setLogIds(array $LogIds) 设置操作日志 ID数组，最多 200 个
+ * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CheckBatchStatusRequest extends AbstractModel
+class DeleteTemplateResponse extends AbstractModel
 {
     /**
-     * @var array 操作日志 ID数组，最多 200 个
+     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
-    public $LogIds;
+    public $RequestId;
 
     /**
-     * @param array $LogIds 操作日志 ID数组，最多 200 个
+     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -46,8 +46,8 @@ class CheckBatchStatusRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("LogIds",$param) and $param["LogIds"] !== null) {
-            $this->LogIds = $param["LogIds"];
+        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+            $this->RequestId = $param["RequestId"];
         }
     }
 }
