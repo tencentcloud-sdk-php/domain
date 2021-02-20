@@ -18,29 +18,19 @@ namespace TencentCloud\Domain\V20180808\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeDomainBaseInfo返回参数结构体
+ * DescribeTemplate返回参数结构体
  *
- * @method DomainBaseInfo getDomainInfo() 获取域名信息
- * @method void setDomainInfo(DomainBaseInfo $DomainInfo) 设置域名信息
- * @method string getUin() 获取用户Uin
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setUin(string $Uin) 设置用户Uin
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method TemplateInfo getTemplate() 获取模板信息
+ * @method void setTemplate(TemplateInfo $Template) 设置模板信息
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeDomainBaseInfoResponse extends AbstractModel
+class DescribeTemplateResponse extends AbstractModel
 {
     /**
-     * @var DomainBaseInfo 域名信息
+     * @var TemplateInfo 模板信息
      */
-    public $DomainInfo;
-
-    /**
-     * @var string 用户Uin
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public $Uin;
+    public $Template;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -48,9 +38,7 @@ class DescribeDomainBaseInfoResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param DomainBaseInfo $DomainInfo 域名信息
-     * @param string $Uin 用户Uin
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param TemplateInfo $Template 模板信息
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -66,13 +54,9 @@ class DescribeDomainBaseInfoResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DomainInfo",$param) and $param["DomainInfo"] !== null) {
-            $this->DomainInfo = new DomainBaseInfo();
-            $this->DomainInfo->deserialize($param["DomainInfo"]);
-        }
-
-        if (array_key_exists("Uin",$param) and $param["Uin"] !== null) {
-            $this->Uin = $param["Uin"];
+        if (array_key_exists("Template",$param) and $param["Template"] !== null) {
+            $this->Template = new TemplateInfo();
+            $this->Template->deserialize($param["Template"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

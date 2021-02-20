@@ -112,12 +112,24 @@ RedemptionDoing：赎回中
 TransferPending：待转入中
 TransferTransing：转入中
 TransferFailed：转入失败
- * @method string getRegistrarType() 获取注册类型
-epp （腾讯云自有域名）
-xinnet (新网域名)
- * @method void setRegistrarType(string $RegistrarType) 设置注册类型
-epp （腾讯云自有域名）
-xinnet (新网域名)
+ * @method string getRegistrarType() 获取注册商类型
+epp: DNSPod, Inc.（烟台帝思普网络科技有限公司）
+qcloud: Tencent Cloud Computing (Beijing) Limited Liability Company（腾讯云计算（北京）有限责任公司）
+yunxun: Guangzhou Yunxun Information Technology Co., Ltd.（广州云讯信息科技有限公司）
+xinnet: Xin Net Technology Corporation（北京新网数码信息技术有限公司）
+ * @method void setRegistrarType(string $RegistrarType) 设置注册商类型
+epp: DNSPod, Inc.（烟台帝思普网络科技有限公司）
+qcloud: Tencent Cloud Computing (Beijing) Limited Liability Company（腾讯云计算（北京）有限责任公司）
+yunxun: Guangzhou Yunxun Information Technology Co., Ltd.（广州云讯信息科技有限公司）
+xinnet: Xin Net Technology Corporation（北京新网数码信息技术有限公司）
+ * @method array getNameServer() 获取域名绑定的ns
+ * @method void setNameServer(array $NameServer) 设置域名绑定的ns
+ * @method boolean getLockTransfer() 获取true：开启锁定
+false：关闭锁定
+ * @method void setLockTransfer(boolean $LockTransfer) 设置true：开启锁定
+false：关闭锁定
+ * @method string getLockEndTime() 获取锁定结束时间
+ * @method void setLockEndTime(string $LockEndTime) 设置锁定结束时间
  */
 class DomainBaseInfo extends AbstractModel
 {
@@ -208,11 +220,29 @@ TransferFailed：转入失败
     public $BuyStatus;
 
     /**
-     * @var string 注册类型
-epp （腾讯云自有域名）
-xinnet (新网域名)
+     * @var string 注册商类型
+epp: DNSPod, Inc.（烟台帝思普网络科技有限公司）
+qcloud: Tencent Cloud Computing (Beijing) Limited Liability Company（腾讯云计算（北京）有限责任公司）
+yunxun: Guangzhou Yunxun Information Technology Co., Ltd.（广州云讯信息科技有限公司）
+xinnet: Xin Net Technology Corporation（北京新网数码信息技术有限公司）
      */
     public $RegistrarType;
+
+    /**
+     * @var array 域名绑定的ns
+     */
+    public $NameServer;
+
+    /**
+     * @var boolean true：开启锁定
+false：关闭锁定
+     */
+    public $LockTransfer;
+
+    /**
+     * @var string 锁定结束时间
+     */
+    public $LockEndTime;
 
     /**
      * @param string $DomainId 域名资源ID。
@@ -261,9 +291,15 @@ RedemptionDoing：赎回中
 TransferPending：待转入中
 TransferTransing：转入中
 TransferFailed：转入失败
-     * @param string $RegistrarType 注册类型
-epp （腾讯云自有域名）
-xinnet (新网域名)
+     * @param string $RegistrarType 注册商类型
+epp: DNSPod, Inc.（烟台帝思普网络科技有限公司）
+qcloud: Tencent Cloud Computing (Beijing) Limited Liability Company（腾讯云计算（北京）有限责任公司）
+yunxun: Guangzhou Yunxun Information Technology Co., Ltd.（广州云讯信息科技有限公司）
+xinnet: Xin Net Technology Corporation（北京新网数码信息技术有限公司）
+     * @param array $NameServer 域名绑定的ns
+     * @param boolean $LockTransfer true：开启锁定
+false：关闭锁定
+     * @param string $LockEndTime 锁定结束时间
      */
     function __construct()
     {
@@ -320,6 +356,18 @@ xinnet (新网域名)
 
         if (array_key_exists("RegistrarType",$param) and $param["RegistrarType"] !== null) {
             $this->RegistrarType = $param["RegistrarType"];
+        }
+
+        if (array_key_exists("NameServer",$param) and $param["NameServer"] !== null) {
+            $this->NameServer = $param["NameServer"];
+        }
+
+        if (array_key_exists("LockTransfer",$param) and $param["LockTransfer"] !== null) {
+            $this->LockTransfer = $param["LockTransfer"];
+        }
+
+        if (array_key_exists("LockEndTime",$param) and $param["LockEndTime"] !== null) {
+            $this->LockEndTime = $param["LockEndTime"];
         }
     }
 }
